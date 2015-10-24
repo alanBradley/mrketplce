@@ -23,9 +23,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Bootstrap sass gem added for design 
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.5.1'
+
 # Added paperclip for image uploads
 # requires imagemagick to be installed - complete via brew install
 gem 'paperclip', '~> 4.3', '>= 4.3.1'
+# Storage solution for paperclip using Dropbox. Heroku only temporarly stores images. 
+gem "paperclip-dropbox", ">= 1.1.7"
+# Added to protect Dropbox YML file from Github
+gem 'figaro', '~> 1.1', '>= 1.1.1'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
