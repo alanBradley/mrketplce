@@ -28,7 +28,7 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.5.1'
 # requires imagemagick to be installed - complete via brew install
 gem 'paperclip', '~> 4.3', '>= 4.3.1'
 # Storage solution for paperclip using Dropbox. Heroku only temporarly stores images. 
-gem "paperclip-dropbox", ">= 1.1.7"
+gem 'paperclip-dropbox', '>= 1.1.7'
 # Added to protect Dropbox YML file from Github
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 
