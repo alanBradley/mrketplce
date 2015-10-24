@@ -18,3 +18,7 @@
 
 # Ignore application configuration
 /config/application.yml
+
+# Ignore files which are uploaded on localhost to make sure any images we upload on localhost wont go to dropbox as it
+# brings up errors when picture are deleted and duplication happens in dropbox folder
+/public/system
