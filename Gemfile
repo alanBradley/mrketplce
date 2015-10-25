@@ -31,6 +31,8 @@ gem 'paperclip', '~> 4.3', '>= 4.3.1'
 gem 'paperclip-dropbox', '>= 1.1.7'
 # Added to protect Dropbox YML file from Github
 gem 'figaro', '~> 1.1', '>= 1.1.1'
+# Devise added for User Authentication
+gem 'devise', '~> 3.5', '>= 3.5.2'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
