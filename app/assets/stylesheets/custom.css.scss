@@ -1,6 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+* {
+  border-radius: 0 !important;
+}
+
 body {
 	background-color: #F5F5F1;
 	color: #333333;

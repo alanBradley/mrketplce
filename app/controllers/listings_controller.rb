@@ -1,10 +1,18 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, only: [:new, :create, :edit, :destroy]
+  before_filter :check_user, only: [:edit, :update, :destroy]
+
+  # GET /seller
+  # Show listings which are by the current user
+  def seller
+    @listings = Listing.where(user: current_user).order("created_at DESC")
+  end
 
   # GET /listings
   # GET /listings.json
   def index
-    @listings = Listing.all
+    @listings = Listing.all.order("created_at DESC")
   end
 
   # GET /listings/1
@@ -25,6 +33,8 @@ class ListingsController < ApplicationController
   # POST /listings.json
   def create
     @listing = Listing.new(listing_params)
+    # set the user id for the created listing to the current user id
+    @listing.user_id = current_user.id
 
     respond_to do |format|
       if @listing.save
@@ -70,5 +80,12 @@ class ListingsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
       params.require(:listing).permit(:name, :description, :price, :image)
+    end
+
+    # created method to check that only user who owns a listing can change it - added to before_filter
+    def check_user
+      if current_user != @listing.user
+        redirect_to root_utl, alert: "Sorry, You cannot modify this listing. It belongs to somebody else!"
+      end
     end
 end

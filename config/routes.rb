@@ -1,12 +1,23 @@
 Rails.application.routes.draw do
-  resources :listings
+
+  devise_for :users
+
+  # routing to have orders input so purchase can be extracted from the url which item is being bought
+  # example: 
+  # listings/:id/orders/new
+  resources :listings do
+    resources :orders
+  end
   
   get 'pages/about'
   get 'pages/contact'
+  get 'seller' => "listings#seller"
+
+  # orders history
+  get 'sales' => "orders#sales"
+  get 'purchases' => "orders#purchases"
 
   root 'listings#index'
-
-  devise_for :users
 
 
   # The priority is based upon order of creation: first created -> highest priority.

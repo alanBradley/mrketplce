@@ -9,5 +9,17 @@ class Listing < ActiveRecord::Base
 											:path => ":style/:id_:filename"
 	end
 
-    validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+
+  # data validation for listings  - nothing can be blank
+  validates :name, :description, :price, presence: true
+  # Check price field is both a number and is positive
+  validates :price, numericality: { greater_than: 0 }
+  # validation for presence of an image. Don't want listing to be saved with no image. Paperclip documentation
+  validates_attachment_presence :image
+
+# Associations
+belongs_to :user
+has_many :orders
+
 end
