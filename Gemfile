@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+source 'https://rubygems.org'
 ruby "2.2.2"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -33,6 +34,8 @@ gem 'paperclip-dropbox', '>= 1.1.7'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 # Devise added for User Authentication
 gem 'devise', '~> 3.5', '>= 3.5.2'
+# Stripe added to use API for payments
+gem 'stripe'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
