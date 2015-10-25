@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # example: 
   # listings/:id/orders/new
   resources :listings do
-    resources :orders
+    resources :orders, only: [:new, :create, :destroy, :edit]
   end
   
   get 'pages/about'
