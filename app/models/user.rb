@@ -5,4 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   # validation for username not to be blank
   validates :name, presence: true
+
+  # Associations
+  # dependent: :destory will destroy any lsiting from a user if his account is deleted
+  has_many :listings, dependent: :destroy
 end

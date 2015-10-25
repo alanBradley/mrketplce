@@ -17,4 +17,8 @@ class Listing < ActiveRecord::Base
   validates :price, numericality: { greater_than: 0 }
   # validation for presence of an image. Don't want listing to be saved with no image. Paperclip documentation
   validates_attachment_presence :image
+
+# Associations
+belongs_to :user
+
 end

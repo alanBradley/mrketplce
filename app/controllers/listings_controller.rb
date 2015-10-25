@@ -25,6 +25,8 @@ class ListingsController < ApplicationController
   # POST /listings.json
   def create
     @listing = Listing.new(listing_params)
+    # set the user id for the created listing to the current user id
+    @listing.user_id = current_user.id
 
     respond_to do |format|
       if @listing.save
