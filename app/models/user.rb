@@ -13,4 +13,6 @@ class User < ActiveRecord::Base
   # class_name related sales and purchases as an order type - including foreign key for buyer & seller ids
   has_many :sales, class_name: "Order", foreign_key: "seller_id"
   has_many :purchases, class_name: "Order", foreign_key: "buyer_id"
+  
+  has_one :profile
 end
