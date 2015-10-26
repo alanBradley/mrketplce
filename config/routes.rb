@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :categories
   devise_for :users
 
   # routing to have orders input so purchase can be extracted from the url which item is being bought

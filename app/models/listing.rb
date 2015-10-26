@@ -20,6 +20,7 @@ class Listing < ActiveRecord::Base
 
 # Associations
 belongs_to :user
+belongs_to :category
 has_many :orders
 
 end
