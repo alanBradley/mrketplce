@@ -23,6 +23,14 @@
               <li><%= link_to category.name, listings_path(category: category.name) %></li>
             <% end %>
           </ul>
+          <li>
+            <%= form_tag search_listings_path, method: :get, class: "navbar-form navbar-left" do %>
+              <p>
+                <%= text_field_tag :search, params[:search], class: "form-control" %>
+                <%= submit_tag "Search", name: nil, class: "btn btn-btn-default" %>
+              </p>
+            <% end %>
+          </li>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">

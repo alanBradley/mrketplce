@@ -3,6 +3,15 @@ class ListingsController < ApplicationController
   before_filter :authenticate_user!, only: [:new, :create, :edit, :destroy]
   before_filter :check_user, only: [:edit, :update, :destroy]
 
+  def search
+    if params[:search].present?
+      @listings = Listing.search(params[:search])
+    else
+      @listings = Listing.all.order("created_at DESC").paginate(:page => params[:page], :per_page =>12)
+    end
+  end
+
+
   # GET /seller
   # Show listings which are by the current user
   def seller
@@ -13,7 +22,7 @@ class ListingsController < ApplicationController
   # GET /listings.json
   def index
     if params[:category].blank?
-      @listings = Listing.all.order("created_at DESC").paginate(:page => params[:page], :per_page =>2)
+      @listings = Listing.all.order("created_at DESC").paginate(:page => params[:page], :per_page =>12)
     else
       @category_id = Category.find_by(name: params[:category]).id
       @listings = Listing.where(category_id: @category_id).order("created_at DESC").paginate(:page => params[:page], :per_page =>12)

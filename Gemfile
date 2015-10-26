@@ -39,6 +39,10 @@ gem 'stripe'
 gem 'will_paginate', '~> 3.0', '>= 3.0.7'
 # Added to add bootstrap style to Paginate
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
+# Added searchkick for extra search functionality
+# requires elasticsearch to be installed after Java installed
+# after set up localhost:9200 will confirm installed on computer
+gem 'searchkick', '~> 0.9.1'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

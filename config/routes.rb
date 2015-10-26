@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   # listings/:id/orders/new
   resources :listings do
     resources :orders, only: [:new, :create, :destroy, :edit]
+    collection do
+      get 'search'
+    end
   end
   
   get 'pages/about'
