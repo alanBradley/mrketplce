@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   resources :categories
   devise_for :users
 
+  # user/user_id/profile
+  resources :users do
+    resource :profile
+  end
+
   # routing to have orders input so purchase can be extracted from the url which item is being bought
   # example: 
   # listings/:id/orders/new
