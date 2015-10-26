@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-source 'https://rubygems.org'
 ruby "2.2.2"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -36,6 +35,10 @@ gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'devise', '~> 3.5', '>= 3.5.2'
 # Stripe added to use API for payments
 gem 'stripe'
+# Adding Pagination to site - Goal to add infinite scroll through each item in a category
+gem 'will_paginate', '~> 3.0', '>= 3.0.7'
+# Added to add bootstrap style to Paginate
+gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -22,6 +22,13 @@
 </div>
 
 <br>
+
+<!-- Pagination centered with Bootstrap styling from will_paginate-bootstrap gem. Pagination set to limit 12 per page -->
+<Div class="center">
+  <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+</Div>
+
+<br>
 <% if user_signed_in? %>
   <%= link_to 'New Listing', new_listing_path, class: "btn btn-primary" %>
 <% end %>

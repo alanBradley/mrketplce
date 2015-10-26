@@ -13,10 +13,10 @@ class ListingsController < ApplicationController
   # GET /listings.json
   def index
     if params[:category].blank?
-      @listings = Listing.all.order("created_at DESC")
+      @listings = Listing.all.order("created_at DESC").paginate(:page => params[:page], :per_page =>2)
     else
       @category_id = Category.find_by(name: params[:category]).id
-      @listings = Listing.where(category_id: @category_id).order("created_at DESC")
+      @listings = Listing.where(category_id: @category_id).order("created_at DESC").paginate(:page => params[:page], :per_page =>12)
     end
   end
 
