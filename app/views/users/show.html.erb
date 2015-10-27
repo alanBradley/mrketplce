@@ -1,5 +1,16 @@
-<%= @user %><br>
-<%= @user.profile.name %><br>
-<%= @user.profile.phone_number %><br>
-<%= @user.profile.bio %><br>
-<%= @user.profile.user_id %>
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<h1 class="center"><%= @user.profile.name %>'s Profile</h1>
+		<p class="center">Be One With The Community</p>
+		<div class="thumbnail">
+			<%= image_tag @user.profile.image.url %>
+		</div>
+		<div class="well center"> 
+			<h4>Name: <%= @user.profile.name %></h4>
+			<h4>Contact Number: <%= @user.profile.phone_number %></h4>
+			<h4>About me </h4>
+			<hr>
+			<p><%= @user.profile.bio %></p>
+		</div>
+	</div>
+</div>
