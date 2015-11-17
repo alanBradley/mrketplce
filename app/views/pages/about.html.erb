@@ -1,2 +1,17 @@
+<h1> Check out some of our Community </h1>
 
-<h1> Welcome to MrketPlce </h1>
+<div class="center">
+  <div class="row">
+    <% @user.each do |user| %>
+      <div class="col-md-3">
+        <div class="thumbnail">
+        <!-- image now set to be a link -->
+          <%= image_tag user.profile.image.url %>
+          <div class="caption">
+            <h3><%= user.profile.name %></h3>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
