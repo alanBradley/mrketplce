@@ -1,5 +1,6 @@
 class Listing < ActiveRecord::Base
 	# if else to enable localhost pic savings to go to computer and heroku savings go to dropbox - see gitignore file for more detail
+	# figaro heroku:set -e production now instead of figaro:rake
 	if Rails.env.development?
 		has_attached_file :image, :styles => { :medium => "200x", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
 	else
