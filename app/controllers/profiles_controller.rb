@@ -35,6 +35,10 @@ class ProfilesController < ApplicationController
 	def update
 		@user = User.find(params[:user_id])
 		@profile = @user.profile
+
+		@reportEvent = ::ReportLogger.new("ProfileCreateLogger.txt")
+    @reportEvent.report(profile_params[:name],profile_params[:phone_numer],profile_params[:bio],profile_params[:updated_at])
+
 		if @profile.update_attributes(profile_params)
 			flash[:success] = "Profile Updated!"
 			redirect_to user_path(params[:user_id])
