@@ -1,5 +1,7 @@
 class ProfilesController < ApplicationController
 	require 'ReportLogger'
+	require 'Profcheck'
+
 	# 		  rails :devise
 	before_action :authenticate_user!
 	before_action :only_current_user
@@ -15,8 +17,8 @@ class ProfilesController < ApplicationController
 		@profile = @user.build_profile(profile_params)
 
 		# Report Logger Gem tool to log any amount of params required.
-		@reportEvent = ::ReportLogger.new("ProfileCreateLogger.txt")
-    @reportEvent.report(profile_params[:name],profile_params[:phone_numer],profile_params[:bio],profile_params[:updated_at])
+		#@reportEvent = ::ReportLogger.new("ProfileCreateLogger.txt")
+    #@reportEvent.report(profile_params[:name],profile_params[:phone_numer],profile_params[:bio],profile_params[:updated_at])
 
 
 		if @profile.save
@@ -36,8 +38,19 @@ class ProfilesController < ApplicationController
 		@user = User.find(params[:user_id])
 		@profile = @user.profile
 
-		@reportEvent = ::ReportLogger.new("ProfileCreateLogger.txt")
-    @reportEvent.report(profile_params[:name],profile_params[:phone_numer],profile_params[:bio],profile_params[:updated_at])
+		#@reportEvent = ::ReportLogger.new("ProfileCreateLogger.txt")
+    #@reportEvent.report(profile_params[:name],profile_params[:phone_numer],profile_params[:bio],profile_params[:updated_at])
+
+    # Profanity checker checks parameters and reponds with updated string from csv file contained within application
+    @p = ::Profcheck.new
+
+    if @p.isProfane(profile_params[:bio]) then
+    	
+    	@l = ::ReportLogger.new("ProfanityLogger.txt")
+    	@l.report(profile_params[:name],profile_params[:bio])
+    	
+    	@p.swapProfanity(profile_params[:bio])
+    end
 
 		if @profile.update_attributes(profile_params)
 			flash[:success] = "Profile Updated!"

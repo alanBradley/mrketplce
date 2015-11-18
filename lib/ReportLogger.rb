@@ -5,14 +5,20 @@ class ReportLogger
 		@handle = File.open(filename,'a')
 	end
 
-	def report (*items)
-			@handle.print("Test Loop Start: " + "\n")
+#	def report (*items)
+#			@handle.print("Test Loop Start: " + "\n")
+#
+#			items.each do |item|
+#				@handle.print(item)
+#			end
+#			@handle.puts( "-End" + "\n" + " - - - - - - - - - - - - - - ")
+#	end
 
-			items.each do |item|
-				@handle.print(item)
-			end
-			@handle.puts( "-End" + "\n" + " - - - - - - - - - - - - - - ")
+	def report (user , comment)
+		profanityReport = "Profanity Alert Message: User #{user} has entered #{comment} into the system."
+		@handle.puts(profanityReport)
 	end
+
 
 	def read
 		File.open(@handle, 'r') do |f|
