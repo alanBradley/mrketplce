@@ -1,4 +1,5 @@
 class ProfilesController < ApplicationController
+	require 'ReportLogger'
 	# 		  rails :devise
 	before_action :authenticate_user!
 	before_action :only_current_user
@@ -12,6 +13,12 @@ class ProfilesController < ApplicationController
 	def create
 		@user = User.find(params[:user_id])
 		@profile = @user.build_profile(profile_params)
+
+		# Report Logger Gem tool to log any amount of params required.
+		@reportEvent = ::ReportLogger.new("ProfileCreateLogger.txt")
+    @reportEvent.report(profile_params[:name],profile_params[:phone_numer],profile_params[:bio],profile_params[:updated_at])
+
+
 		if @profile.save
 			flash[:success] = "Profile Updated"
 			redirect_to user_path(params[:user_id])
