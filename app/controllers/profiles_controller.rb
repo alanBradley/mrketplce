@@ -52,6 +52,9 @@ class ProfilesController < ApplicationController
     	@p.swapProfanity(profile_params[:bio])
     end
 
+    #@p = ::ProfanityReport.new
+    #ProfanityReport.swapProfanity(profile_params[:bio])
+
 		if @profile.update_attributes(profile_params)
 			flash[:success] = "Profile Updated!"
 			redirect_to user_path(params[:user_id])

@@ -14,15 +14,16 @@ class Profcheck
 	   # @words = ["shit","feck","arse","tee"]
 	   # @words = CSV.read('words.csv')
 
-	   # Creates Hash from CSV file for each row grab index value[0],[1], strip words start + end 
+	   # Creates Hash from CSV file for each row grab index value[0],[1], strip each word start & end 
 	   @wordSub = Hash[ readFile.map do |row|
-	   	[ row[0].strip , row[1].strip] 
+	   	[ row[0].strip , row[1].strip ] 
 	   end]
 
-	   # test to see if Hash from CSV file works
+	   # for use with test to see if Hash from CSV file works
 	   # puts @wordSub
 	   
 	   # Old test to make sure Hash:keys can work
+	   
 	   # Ruby Hash
 	   #     @wordSub = {
 	   #  "shit" => "s**t",
@@ -33,16 +34,16 @@ class Profcheck
 	end
 
 	# method will return true is there are any dodgy words in the string
-	def isProfane(str)
+	def isProfanity(str)
 	  isProfane = false
 	  words = @wordSub.keys
 
 	  words.each do |x| 
 	     if str.include?(x)
-	       isProfane = true
+	       isProfanity = true
 	     end
 	  end
-	  return isProfane
+	  return isProfanity
 	end
 
 	# method will replace all dodgy words matched with a common word
@@ -82,10 +83,12 @@ end
 #g = Profcheck.new()
 
 
-#if g.isProfane("shit feck arse drink ladies") then
+#if g.isProfanity("shit feck arse drink ladies") then
 #   puts "Bad Language Detected within content"
 #end
 
 #puts g.filterProfanity("holy shit batman, I think i've had one two many drink");
-
 #puts g.swapProfanity("holy shit batman, I think i've had one two many drink");
+
+
+
