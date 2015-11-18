@@ -73,5 +73,6 @@ group :development do
   gem 'spring'
 end
 
-gem 'profanity_report'
+gem 'profanity_checker'
+gem 'report_logger'
 
