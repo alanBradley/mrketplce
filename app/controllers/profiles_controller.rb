@@ -1,7 +1,4 @@
 class ProfilesController < ApplicationController
-	require 'ReportLogger'
-	require 'Profcheck'
-
 	# 		  rails :devise
 	before_action :authenticate_user!
 	before_action :only_current_user
@@ -42,13 +39,16 @@ class ProfilesController < ApplicationController
     #@reportEvent.report(profile_params[:name],profile_params[:phone_numer],profile_params[:bio],profile_params[:updated_at])
 
     # Profanity checker checks parameters and reponds with updated string from csv file contained within application
-    @p = ::Profcheck.new
+    @p = ProfanityChecker.new
 
-    if @p.isProfane(profile_params[:bio]) then
+    # if string from bio contains any keywords from the csv file then continue
+    if @p.isProfanity(profile_params[:bio]) then
     	
-    	@l = ::ReportLogger.new("ProfanityLogger.txt")
+    	# New txt file created if doesnt exist already
+    	@l = ReportLogger.new("ProfanityLogger.txt")
+    	# report method called on the parameters :name and :bio - logs restricted words use
     	@l.report(profile_params[:name],profile_params[:bio])
-    	
+    	# any profanity used in the bio is now swaped for words contained in the csv file - filterProfanity(str) could be used also
     	@p.swapProfanity(profile_params[:bio])
     end
 

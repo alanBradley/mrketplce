@@ -44,6 +44,9 @@ gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
 # after set up localhost:9200 will confirm installed on computer
 gem 'searchkick', '~> 0.9.1'
 
+# Generate an entity-relationship diagram for application
+gem 'rails-erd', '~> 1.4', '>= 1.4.4'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -73,5 +76,6 @@ group :development do
   gem 'spring'
 end
 
-gem 'profanity_report'
+gem 'profanity_checker'
+gem 'report_logger'
 
