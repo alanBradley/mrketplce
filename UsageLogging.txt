@@ -1,0 +1,29 @@
+Logged Details: 02/12/2015 15:23:34
+From profiles Controller | update Action
+Bradley;New feck, shit!; -EndLog
+ - - - - - - - - - - - - - - 
+Logged Details: 02/12/2015 15:25:49
+From profiles Controller | update Action
+Bradley; New feck, shit!;  -EndLog
+ - - - - - - - - - - - - - - 
+Logged Details in Full: 02/12/2015 15:38:07
+Logged Details in Full: 02/12/2015 15:38:34
+From profiles Controller | update Action
+["utf8", "✓"]; ["_method", "patch"]; ["authenticity_token", "bonCxVX1PEEPhaO4eLxOPNsnQ7lc1XDkLEqSwAA5dImQY6cgdpNuvIX3Kcj3XJ60+2UNxzZz8ipNx7feWSkI+A=="]; ["profile", {"name"=>"Bradley", "phone_number"=>"087 6312682", "image"=>#<ActionDispatch::Http::UploadedFile:0x007f80dc335a18 @tempfile=#<Tempfile:/var/folders/_0/3xd7lvxx411723qr8xkkq9180000gn/T/RackMultipart20151202-9977-liz9o.jpg>, @original_filename="IMG_0001.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"profile[image]\"; filename=\"IMG_0001.jpg\"\r\nContent-Type: image/jpeg\r\n">, "bio"=>"New feck, shit!"}]; ["commit", "Update Profile"]; ["controller", "profiles"]; ["action", "update"]; ["user_id", "1"];  -EndLog
+ - - - - - - - - - - - - - - 
+Logged Details: 02/12/2015 15:47:47
+From profiles Controller | update Action
+Bradley; New feck, shit!;  -EndLog
+ - - - - - - - - - - - - - - 
+Logged Details: 02/12/2015 15:52:20
+From profiles Controller | update Action
+Bradley; New feck, shit!;  -EndLog
+ - - - - - - - - - - - - - - 
+Logged Details: 02/12/2015 15:53:59
+From profiles Controller | update Action
+Bradley; New feck, shit!;  -EndLog
+ - - - - - - - - - - - - - - 
+Logged Details: 02/12/2015 16:02:09
+From profiles Controller | update Action
+Bradley; Hey my name is Alan and I love to sell you ideas!;  -EndLog
+ - - - - - - - - - - - - - - 
