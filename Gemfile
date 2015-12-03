@@ -66,6 +66,11 @@ group :development, :test do
   # Use sqlite3 as the database for Active Record
 	gem 'sqlite3'
   gem 'byebug'
+
+  # Gems created by me
+  gem 'profanity_checker'
+  gem 'report_logger'
+
 end
 
 group :development do
@@ -75,7 +80,4 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
-gem 'profanity_checker'
-gem 'report_logger'
 
